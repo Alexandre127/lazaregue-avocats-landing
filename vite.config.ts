@@ -20,13 +20,8 @@ export default defineConfig({
     outDir: 'dist',
     assetsDir: 'assets',
     sourcemap: false,
-    minify: 'terser',
-    terserOptions: {
-      compress: {
-        drop_console: true, // Supprime les console.log en production
-        drop_debugger: true,
-      },
-    },
+    minify: 'esbuild', // esbuild est intégré dans Vite, pas besoin d'installer terser
+    // Note: esbuild supprime automatiquement les console.log en production
     rollupOptions: {
       output: {
         manualChunks: {
