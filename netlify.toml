@@ -6,13 +6,6 @@
 # hébergé sur Vercel (SEO : l'URL historique est conservée à l'identique).
 # IMPORTANT : ces règles doivent rester AVANT le fallback SPA ci-dessous.
 
-# Normalise l'URL sans slash final vers la forme canonique avec slash
-[[redirects]]
-  from = "/litige-afp-picrights"
-  to = "/litige-afp-picrights/"
-  status = 301
-  force = true
-
 # La page (et ses éventuelles sous-routes) proxifiée vers Vercel
 [[redirects]]
   from = "/litige-afp-picrights/*"
