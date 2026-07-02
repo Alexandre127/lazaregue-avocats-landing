@@ -20,6 +20,13 @@
   status = 200
   force = true
 
+# Scans de dossiers affichés dans le hero (images statiques du microsite Vercel)
+[[redirects]]
+  from = "/dossiers/*"
+  to = "https://lazaregue-site-picrights.vercel.app/dossiers/:splat"
+  status = 200
+  force = true
+
 # SPA fallback - toutes les autres routes redirigent vers index.html
 [[redirects]]
   from = "/*"
