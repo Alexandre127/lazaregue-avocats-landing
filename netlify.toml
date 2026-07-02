@@ -2,7 +2,32 @@
   command = "npm run build"
   publish = "dist"
 
-# SPA fallback - toutes les routes redirigent vers index.html
+# Proxy : la page /litige-afp-picrights/ est servie par le microsite Next.js
+# hébergé sur Vercel (SEO : l'URL historique est conservée à l'identique).
+# IMPORTANT : ces règles doivent rester AVANT le fallback SPA ci-dessous.
+
+# Normalise l'URL sans slash final vers la forme canonique avec slash
+[[redirects]]
+  from = "/litige-afp-picrights"
+  to = "/litige-afp-picrights/"
+  status = 301
+  force = true
+
+# La page (et ses éventuelles sous-routes) proxifiée vers Vercel
+[[redirects]]
+  from = "/litige-afp-picrights/*"
+  to = "https://lazaregue-site-picrights.vercel.app/litige-afp-picrights/:splat"
+  status = 200
+  force = true
+
+# Assets Next.js (CSS/JS, dont les variables de couleur) servis depuis Vercel
+[[redirects]]
+  from = "/_next/*"
+  to = "https://lazaregue-site-picrights.vercel.app/_next/:splat"
+  status = 200
+  force = true
+
+# SPA fallback - toutes les autres routes redirigent vers index.html
 [[redirects]]
   from = "/*"
   to = "/index.html"
