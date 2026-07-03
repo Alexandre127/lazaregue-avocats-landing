@@ -27,6 +27,50 @@
   status = 200
   force = true
 
+# Pages du microsite PicRights (menu) servies depuis Vercel — conservent
+# l'URL sur le domaine principal. L'ancien site n'a pas de page à ces chemins.
+[[redirects]]
+  from = "/picrights/*"
+  to = "https://lazaregue-site-picrights.vercel.app/picrights/:splat"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/copytrack/*"
+  to = "https://lazaregue-site-picrights.vercel.app/copytrack/:splat"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/getty-images/*"
+  to = "https://lazaregue-site-picrights.vercel.app/getty-images/:splat"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/rights-control/*"
+  to = "https://lazaregue-site-picrights.vercel.app/rights-control/:splat"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/jurisprudence/*"
+  to = "https://lazaregue-site-picrights.vercel.app/jurisprudence/:splat"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/cas-pratiques/*"
+  to = "https://lazaregue-site-picrights.vercel.app/cas-pratiques/:splat"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/notre-methode/*"
+  to = "https://lazaregue-site-picrights.vercel.app/notre-methode/:splat"
+  status = 200
+  force = true
+
 # SPA fallback - toutes les autres routes redirigent vers index.html
 [[redirects]]
   from = "/*"
