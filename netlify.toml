@@ -71,6 +71,49 @@
   status = 200
   force = true
 
+# Hub « Agences » + pages agences (AFP, Reuters, AP, PA Images, MaxPPP, Paris Match)
+[[redirects]]
+  from = "/agences/*"
+  to = "https://lazaregue-site-picrights.vercel.app/agences/:splat"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/afp/*"
+  to = "https://lazaregue-site-picrights.vercel.app/afp/:splat"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/reuters/*"
+  to = "https://lazaregue-site-picrights.vercel.app/reuters/:splat"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/ap/*"
+  to = "https://lazaregue-site-picrights.vercel.app/ap/:splat"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/pa-images/*"
+  to = "https://lazaregue-site-picrights.vercel.app/pa-images/:splat"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/maxppp/*"
+  to = "https://lazaregue-site-picrights.vercel.app/maxppp/:splat"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/paris-match/*"
+  to = "https://lazaregue-site-picrights.vercel.app/paris-match/:splat"
+  status = 200
+  force = true
+
 # SPA fallback - toutes les autres routes redirigent vers index.html
 [[redirects]]
   from = "/*"
