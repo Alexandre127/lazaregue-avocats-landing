@@ -120,6 +120,12 @@
   status = 200
   force = true
 
+[[redirects]]
+  from = "/mentions-legales/*"
+  to = "https://lazaregue-site-picrights.vercel.app/mentions-legales/:splat"
+  status = 200
+  force = true
+
 # Sitemap & robots du microsite (URLs en www.lazaregue-avocats.fr) servis
 # depuis Vercel — indispensables pour l'indexation Google du cluster SEO.
 # À placer AVANT le fallback SPA.
