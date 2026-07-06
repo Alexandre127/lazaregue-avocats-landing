@@ -114,6 +114,12 @@
   status = 200
   force = true
 
+[[redirects]]
+  from = "/confidentialite/*"
+  to = "https://lazaregue-site-picrights.vercel.app/confidentialite/:splat"
+  status = 200
+  force = true
+
 # SPA fallback - toutes les autres routes redirigent vers index.html
 [[redirects]]
   from = "/*"
