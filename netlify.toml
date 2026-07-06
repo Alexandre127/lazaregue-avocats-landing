@@ -71,6 +71,12 @@
   status = 200
   force = true
 
+[[redirects]]
+  from = "/a-propos/*"
+  to = "https://lazaregue-site-picrights.vercel.app/a-propos/:splat"
+  status = 200
+  force = true
+
 # Hub « Agences » + pages agences (AFP, Reuters, AP, PA Images, MaxPPP, Paris Match)
 [[redirects]]
   from = "/agences/*"
