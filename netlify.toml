@@ -141,6 +141,13 @@
   status = 200
   force = true
 
+# Image Open Graph générée par le microsite (partage social)
+[[redirects]]
+  from = "/opengraph-image*"
+  to = "https://lazaregue-site-picrights.vercel.app/opengraph-image:splat"
+  status = 200
+  force = true
+
 # SPA fallback - toutes les autres routes redirigent vers index.html
 [[redirects]]
   from = "/*"
