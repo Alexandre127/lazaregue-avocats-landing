@@ -120,6 +120,21 @@
   status = 200
   force = true
 
+# Sitemap & robots du microsite (URLs en www.lazaregue-avocats.fr) servis
+# depuis Vercel — indispensables pour l'indexation Google du cluster SEO.
+# À placer AVANT le fallback SPA.
+[[redirects]]
+  from = "/sitemap.xml"
+  to = "https://lazaregue-site-picrights.vercel.app/sitemap.xml"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/robots.txt"
+  to = "https://lazaregue-site-picrights.vercel.app/robots.txt"
+  status = 200
+  force = true
+
 # SPA fallback - toutes les autres routes redirigent vers index.html
 [[redirects]]
   from = "/*"
