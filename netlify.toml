@@ -27,6 +27,20 @@
   status = 200
   force = true
 
+# Ancien article /picrights/picrights-afp/ migré vers le cluster dédié → 301
+[[redirects]]
+  from = "/picrights/picrights-afp/*"
+  to = "/picrights-afp/:splat"
+  status = 301
+  force = true
+
+# Cluster PicRights AFP (pilier + articles) servi depuis Vercel
+[[redirects]]
+  from = "/picrights-afp/*"
+  to = "https://lazaregue-site-picrights.vercel.app/picrights-afp/:splat"
+  status = 200
+  force = true
+
 # Pages du microsite PicRights (menu) servies depuis Vercel — conservent
 # l'URL sur le domaine principal. L'ancien site n'a pas de page à ces chemins.
 [[redirects]]
@@ -84,10 +98,11 @@
   status = 200
   force = true
 
+# /afp/ migré vers le cluster optimisé PicRights AFP → 301 permanent
 [[redirects]]
   from = "/afp/*"
-  to = "https://lazaregue-site-picrights.vercel.app/afp/:splat"
-  status = 200
+  to = "/picrights-afp/:splat"
+  status = 301
   force = true
 
 [[redirects]]
