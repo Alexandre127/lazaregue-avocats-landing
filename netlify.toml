@@ -6,6 +6,15 @@
 # hébergé sur Vercel (SEO : l'URL historique est conservée à l'identique).
 # IMPORTANT : ces règles doivent rester AVANT le fallback SPA ci-dessous.
 
+# Landing "Formation IA et ChatGPT pour les avocats" (marque Avocat Puissance 10),
+# page statique servie par le projet Vercel dédié. URL canonique sur le domaine
+# principal pour bénéficier de son autorité SEO.
+[[redirects]]
+  from = "/formation-ia-avocat/*"
+  to = "https://site-avocat-puissance-10.vercel.app/formation-ia-avocat/:splat"
+  status = 200
+  force = true
+
 # La page (et ses éventuelles sous-routes) proxifiée vers Vercel
 [[redirects]]
   from = "/litige-afp-picrights/*"
