@@ -13,6 +13,13 @@
   status = 200
   force = true
 
+# Page "action collective" (recouvrement abusif) servie par le microsite Vercel
+[[redirects]]
+  from = "/action-collective/*"
+  to = "https://lazaregue-site-picrights.vercel.app/action-collective/:splat"
+  status = 200
+  force = true
+
 # Assets Next.js (CSS/JS, dont les variables de couleur) servis depuis Vercel
 [[redirects]]
   from = "/_next/*"
