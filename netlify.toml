@@ -29,6 +29,13 @@
   status = 200
   force = true
 
+# Page "licence des illustrations" (métadonnées ImageObject) servie par Vercel
+[[redirects]]
+  from = "/licence-images/*"
+  to = "https://lazaregue-site-picrights.vercel.app/licence-images/:splat"
+  status = 200
+  force = true
+
 # Assets Next.js (CSS/JS, dont les variables de couleur) servis depuis Vercel
 [[redirects]]
   from = "/_next/*"
