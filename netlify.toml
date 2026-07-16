@@ -50,112 +50,48 @@
   status = 200
   force = true
 
-# Ancien article /picrights/picrights-afp/ migré vers le cluster dédié → 301
+# ============================================================
+# CONSOLIDATION PICRIGHTS (juil. 2026)
+# Le pilier /picrights/ et le cluster /picrights-afp/ sont supprimés du
+# microsite. Une seule page de contenu subsiste : /litige-afp-picrights/.
+# L'ORDRE COMPTE : Netlify applique la PREMIÈRE règle qui matche.
+# ============================================================
+
+# 1) Le pilier exact → 301 vers la landing (transfert d'autorité).
+#    Doit rester AVANT la règle /picrights/* ci-dessous.
+[[redirects]]
+  from = "/picrights/"
+  to = "/litige-afp-picrights/"
+  status = 301
+  force = true
+
+# 2) Anciennes URLs qui avaient déjà une redirection → 301 vers la landing.
 [[redirects]]
   from = "/picrights/picrights-afp/*"
-  to = "/picrights-afp/:splat"
+  to = "/litige-afp-picrights/"
   status = 301
   force = true
 
-# Cluster PicRights AFP (pilier + articles) servi depuis Vercel
-[[redirects]]
-  from = "/picrights-afp/*"
-  to = "https://lazaregue-site-picrights.vercel.app/picrights-afp/:splat"
-  status = 200
-  force = true
-
-# Pages du microsite PicRights (menu) servies depuis Vercel — conservent
-# l'URL sur le domaine principal. L'ancien site n'a pas de page à ces chemins.
+# 3) Articles des clusters supprimés → 410 Gone (désindexation rapide).
+#    SANS ces règles, ces URLs tomberaient sur le fallback SPA `/*` et
+#    renverraient HTTP 200 + la coquille du SPA = SOFT 404 (le pire cas SEO).
 [[redirects]]
   from = "/picrights/*"
-  to = "https://lazaregue-site-picrights.vercel.app/picrights/:splat"
-  status = 200
+  to = "/index.html"
+  status = 410
   force = true
 
 [[redirects]]
-  from = "/copytrack/*"
-  to = "https://lazaregue-site-picrights.vercel.app/copytrack/:splat"
-  status = 200
+  from = "/picrights-afp/*"
+  to = "/index.html"
+  status = 410
   force = true
 
-[[redirects]]
-  from = "/getty-images/*"
-  to = "https://lazaregue-site-picrights.vercel.app/getty-images/:splat"
-  status = 200
-  force = true
-
-[[redirects]]
-  from = "/rights-control/*"
-  to = "https://lazaregue-site-picrights.vercel.app/rights-control/:splat"
-  status = 200
-  force = true
-
-[[redirects]]
-  from = "/jurisprudence/*"
-  to = "https://lazaregue-site-picrights.vercel.app/jurisprudence/:splat"
-  status = 200
-  force = true
-
-[[redirects]]
-  from = "/cas-pratiques/*"
-  to = "https://lazaregue-site-picrights.vercel.app/cas-pratiques/:splat"
-  status = 200
-  force = true
-
-[[redirects]]
-  from = "/notre-methode/*"
-  to = "https://lazaregue-site-picrights.vercel.app/notre-methode/:splat"
-  status = 200
-  force = true
-
-[[redirects]]
-  from = "/a-propos/*"
-  to = "https://lazaregue-site-picrights.vercel.app/a-propos/:splat"
-  status = 200
-  force = true
-
-# Hub « Agences » + pages agences (AFP, Reuters, AP, PA Images, MaxPPP, Paris Match)
-[[redirects]]
-  from = "/agences/*"
-  to = "https://lazaregue-site-picrights.vercel.app/agences/:splat"
-  status = 200
-  force = true
-
-# /afp/ migré vers le cluster optimisé PicRights AFP → 301 permanent
+# /afp/ pointait vers le cluster PicRights AFP, désormais supprimé → 301 landing
 [[redirects]]
   from = "/afp/*"
-  to = "/picrights-afp/:splat"
+  to = "/litige-afp-picrights/"
   status = 301
-  force = true
-
-[[redirects]]
-  from = "/reuters/*"
-  to = "https://lazaregue-site-picrights.vercel.app/reuters/:splat"
-  status = 200
-  force = true
-
-[[redirects]]
-  from = "/ap/*"
-  to = "https://lazaregue-site-picrights.vercel.app/ap/:splat"
-  status = 200
-  force = true
-
-[[redirects]]
-  from = "/pa-images/*"
-  to = "https://lazaregue-site-picrights.vercel.app/pa-images/:splat"
-  status = 200
-  force = true
-
-[[redirects]]
-  from = "/maxppp/*"
-  to = "https://lazaregue-site-picrights.vercel.app/maxppp/:splat"
-  status = 200
-  force = true
-
-[[redirects]]
-  from = "/paris-match/*"
-  to = "https://lazaregue-site-picrights.vercel.app/paris-match/:splat"
-  status = 200
   force = true
 
 [[redirects]]
@@ -190,6 +126,89 @@
   from = "/opengraph-image*"
   to = "https://lazaregue-site-picrights.vercel.app/opengraph-image:splat"
   status = 200
+  force = true
+
+# ============================================================
+# Pages supprimées du microsite (consolidation juil. 2026) → 410 Gone.
+# Indispensable : sans règle, elles tomberaient sur le fallback SPA `/*`
+# et renverraient HTTP 200 + coquille du SPA = soft 404.
+# ============================================================
+[[redirects]]
+  from = "/copytrack/*"
+  to = "/index.html"
+  status = 410
+  force = true
+
+[[redirects]]
+  from = "/getty-images/*"
+  to = "/index.html"
+  status = 410
+  force = true
+
+[[redirects]]
+  from = "/rights-control/*"
+  to = "/index.html"
+  status = 410
+  force = true
+
+[[redirects]]
+  from = "/jurisprudence/*"
+  to = "/index.html"
+  status = 410
+  force = true
+
+[[redirects]]
+  from = "/cas-pratiques/*"
+  to = "/index.html"
+  status = 410
+  force = true
+
+[[redirects]]
+  from = "/notre-methode/*"
+  to = "/index.html"
+  status = 410
+  force = true
+
+[[redirects]]
+  from = "/a-propos/*"
+  to = "/index.html"
+  status = 410
+  force = true
+
+[[redirects]]
+  from = "/agences/*"
+  to = "/index.html"
+  status = 410
+  force = true
+
+[[redirects]]
+  from = "/reuters/*"
+  to = "/index.html"
+  status = 410
+  force = true
+
+[[redirects]]
+  from = "/ap/*"
+  to = "/index.html"
+  status = 410
+  force = true
+
+[[redirects]]
+  from = "/pa-images/*"
+  to = "/index.html"
+  status = 410
+  force = true
+
+[[redirects]]
+  from = "/maxppp/*"
+  to = "/index.html"
+  status = 410
+  force = true
+
+[[redirects]]
+  from = "/paris-match/*"
+  to = "/index.html"
+  status = 410
   force = true
 
 # SPA fallback - toutes les autres routes redirigent vers index.html
